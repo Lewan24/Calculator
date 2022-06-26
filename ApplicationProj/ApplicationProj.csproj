@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Files\Images\calculator.ico</ApplicationIcon>
+    <AssemblyName>Calculator</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
