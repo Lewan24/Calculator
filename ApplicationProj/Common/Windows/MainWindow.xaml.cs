@@ -122,6 +122,7 @@ public partial class MainWindow : Window
                 break;
             case "CLEAR":
                 operationOutput.Text = "0";
+                lastOperation = "0";
                 break;
         }
     }

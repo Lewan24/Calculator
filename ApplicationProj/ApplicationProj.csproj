@@ -8,11 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Common\Windows\calculator.png" />
+    <None Remove="Common\Windows\close.png" />
+    <None Remove="Common\Windows\minus-symbol.png" />
+    <None Remove="Files\Images\calculator.png" />
     <None Remove="Files\Images\close.png" />
     <None Remove="Files\Images\minus-symbol.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Common\Windows\calculator.png" />
+    <Resource Include="Common\Windows\close.png" />
+    <Resource Include="Common\Windows\minus-symbol.png" />
+    <Resource Include="Files\Images\calculator.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Files\Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
