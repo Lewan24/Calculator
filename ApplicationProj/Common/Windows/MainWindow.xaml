@@ -241,7 +241,8 @@
                 <Button Margin="6" 
                         Grid.Column="4" Grid.Row="5" 
                         FontFamily="MV Boli" FontSize="24"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        Click="EnterButton_Click">
                     =
                 </Button>
             </Grid>

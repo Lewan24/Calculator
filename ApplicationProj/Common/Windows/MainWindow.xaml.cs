@@ -146,4 +146,55 @@ public partial class MainWindow : Window
 
         lastOperation = "-";
     }
+
+    private void EnterButton_Click(object sender, RoutedEventArgs e)
+    {
+        string[] splittedText = operationOutput.Text.Split(" ");
+
+        int i = 0;
+
+        while (splittedText.Contains("*") || splittedText.Contains("/"))
+        {
+            if (splittedText[i] == "*" && i > 0)
+            {
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) * double.Parse(splittedText[i + 1])}";
+                splittedText[i] = ""; splittedText[i + 1] = "";
+                i = 0;
+            }
+            else if (splittedText[i] == "/" && i > 0)
+                if (double.Parse(splittedText[i + 1]) != 0)
+                {
+                    splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) / double.Parse(splittedText[i + 1])}";
+                    splittedText[i] = ""; splittedText[i + 1] = "";
+                    i = 0;
+                }
+                else { splittedText[i - 1] = "0"; splittedText[i] = ""; splittedText[i + 1] = ""; }
+            else i++;
+
+            splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+
+        i = 0;
+
+        while (splittedText.Contains("+") || splittedText.Contains("-"))
+        {
+            if (splittedText[i] == "+" && i > 0)
+            {
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) + double.Parse(splittedText[i + 1])}";
+                splittedText[i] = ""; splittedText[i + 1] = "";
+                i = 0;
+            }
+            else if (splittedText[i] == "-" && i > 0)
+            {
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) - double.Parse(splittedText[i + 1])}";
+                splittedText[i] = ""; splittedText[i + 1] = "";
+                i = 0;
+            }
+            else i++;
+
+            splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+
+        operationOutput.Text = string.Concat(splittedText);
+    }
 }
