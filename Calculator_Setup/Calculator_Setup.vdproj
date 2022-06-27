@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1149FA07D75E4361A78E4B290686AF78"
+        "MsmKey" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
+        "MsmKey" = "8:_2B722C3D8C2A4115961BEA2918D9F540"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -71,17 +71,17 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F7D8CF9A85754903B646D7C6EF5A386A"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_873421BF327E41429911E5D7D2C438AC"
             {
             "Name" = "8:windowsdesktop-runtime-6.0.6-win-x64.exe"
             "Condition" = "8:"
-            "Object" = "8:_1149FA07D75E4361A78E4B290686AF78"
+            "Object" = "8:_2B722C3D8C2A4115961BEA2918D9F540"
             "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:/Install"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:/Commit"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_63DFCD93_D794_4489_9FC6_0C225CAFFAE4"
+            "Identifier" = "8:_690F2531_F9F5_44AF_B24F_878988A23DA2"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -110,10 +110,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1149FA07D75E4361A78E4B290686AF78"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1AFF227A16994F7299CFD9A44DEBE7F7"
             {
-            "SourcePath" = "8:C:\\Users\\Lewan\\Downloads\\windowsdesktop-runtime-6.0.6-win-x64.exe"
-            "TargetName" = "8:windowsdesktop-runtime-6.0.6-win-x64.exe"
+            "SourcePath" = "8:..\\ApplicationProj\\Files\\Images\\calculator.ico"
+            "TargetName" = "8:calculator.ico"
             "Tag" = "8:"
             "Folder" = "8:_9A6E8D7C54134B65A9062D452BD464C9"
             "Condition" = "8:"
@@ -130,10 +130,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1AFF227A16994F7299CFD9A44DEBE7F7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B722C3D8C2A4115961BEA2918D9F540"
             {
-            "SourcePath" = "8:..\\ApplicationProj\\Files\\Images\\calculator.ico"
-            "TargetName" = "8:calculator.ico"
+            "SourcePath" = "8:C:\\Users\\Lewan\\Downloads\\windowsdesktop-runtime-6.0.6-win-x64.exe"
+            "TargetName" = "8:windowsdesktop-runtime-6.0.6-win-x64.exe"
             "Tag" = "8:"
             "Folder" = "8:_9A6E8D7C54134B65A9062D452BD464C9"
             "Condition" = "8:"
@@ -207,7 +207,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CalculatorApp"
         "ProductCode" = "8:{2AEDA1FB-34D3-4F76-92E4-922D5357C9A7}"
-        "PackageCode" = "8:{7C4BB599-4C6D-486A-A5B6-3288FCBD5A24}"
+        "PackageCode" = "8:{F5809E02-6874-4584-80B4-BBA4CB35ACD1}"
         "UpgradeCode" = "8:{50FBFEB9-15D8-46BD-ABA1-79BE0E87DF26}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
