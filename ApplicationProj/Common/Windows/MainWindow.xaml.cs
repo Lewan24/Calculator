@@ -27,14 +27,12 @@ public partial class MainWindow : Window
     private void AddOrChangeNumberButton_Click(object sender, RoutedEventArgs e) => AddToOutput((sender as Button).Content.ToString());
     private void AddToOutput(string operation)
     {
-        //if (lastOperation == "=")
-           // ExecuteMainFunction("CLEAR");
-
         if (operation == ".")
         {
             if (lastOperation.All(Char.IsDigit))
             {
                 string[] splittedText = operationOutput.Text.Split(' ');
+
                 string[] lastItem = splittedText[splittedText.Length-1].Split('.');
 
                 if (lastItem.Length == 1)
@@ -204,8 +202,6 @@ public partial class MainWindow : Window
             }
 
             result.Text = string.Concat(splittedText);
-
-            //lastOperation = "=";
         }
     }
 
