@@ -138,7 +138,8 @@ public partial class MainWindow : Window
         }
     }
 
-    private void EnterButton_Click(object sender, RoutedEventArgs e)
+    private void EnterButton_Click(object sender, RoutedEventArgs e) => ExecuteResult();
+    private void ExecuteResult()
     {
         string[] splittedText = operationOutput.Text.Split(" ");
 
@@ -215,6 +216,63 @@ public partial class MainWindow : Window
 
             operationOutput.Text = String.Join(" ", splittedText);
             lastOperation = "1";
+        }
+    }
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case Key.Enter:
+                ExecuteResult();
+                break;
+            case Key.Back:
+                RemoveLastItem();
+                break;
+
+            case Key.D0: case Key.NumPad0:
+                AddToOutput("0");
+                break;
+            case Key.D1: case Key.NumPad1:
+                AddToOutput("1");
+                break;
+            case Key.D2: case Key.NumPad2:
+                AddToOutput("2");
+                break;
+            case Key.D3: case Key.NumPad3:
+                AddToOutput("3");
+                break;
+            case Key.D4: case Key.NumPad4:
+                AddToOutput("4");
+                break;
+            case Key.D5: case Key.NumPad5:
+                AddToOutput("5");
+                break;
+            case Key.D6: case Key.NumPad6:
+                AddToOutput("6");
+                break;
+            case Key.D7: case Key.NumPad7:
+                AddToOutput("7");
+                break;
+            case Key.D8: case Key.NumPad8:
+                AddToOutput("8");
+                break;
+            case Key.D9: case Key.NumPad9:
+                AddToOutput("9");
+                break;
+
+            case Key.Multiply:
+                AddOperationToOutput("*");
+                break;
+            case Key.Add:
+                AddOperationToOutput("+");
+                break;
+            case Key.Subtract:
+                AddOperationToOutput("-");
+                break;
+            case Key.Divide:
+                AddOperationToOutput("/");
+                break;
         }
     }
 }

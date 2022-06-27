@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Calculator" Height="500" Width="279"
         ResizeMode="NoResize"
-        WindowStyle="none" Icon="/Common/Windows/calculator.png">
+        WindowStyle="none" Icon="/Common/Windows/calculator.png" KeyDown="Window_KeyDown">
     <Grid Background="#FF05033C">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
