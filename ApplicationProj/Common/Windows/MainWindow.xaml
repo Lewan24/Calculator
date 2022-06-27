@@ -257,7 +257,8 @@
                         Foreground="White"
                         BorderThickness="1"
                         ToolTip="Negate last added item"
-                        Click="AddOrChangeNumberButton_Click">
+                        Click="ExtraFunctionButton_Click"
+                        x:Name="oneSlashx">
                     1/x
                 </Button>
 
@@ -269,7 +270,8 @@
                         Foreground="White"
                         BorderThickness="1"
                         ToolTip="Negate last added item"
-                        Click="AddOrChangeNumberButton_Click">
+                        Click="ExtraFunctionButton_Click"
+                        x:Name="xToPowerOf2">
                     x&#xb2;
                 </Button>
 
@@ -281,7 +283,8 @@
                         Foreground="White"
                         BorderThickness="1"
                         ToolTip="Negate last added item"
-                        Click="AddOrChangeNumberButton_Click">
+                        Click="ExtraFunctionButton_Click"
+                        x:Name="squareRootOfx">
                     &#x221A;x
                 </Button>
 

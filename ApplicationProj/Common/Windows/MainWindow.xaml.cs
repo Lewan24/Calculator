@@ -148,14 +148,14 @@ public partial class MainWindow : Window
         {
             if (splittedText[i] == "*" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) * double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
+                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) * double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
             else if (splittedText[i] == "/" && i > 0)
-                if (double.Parse(splittedText[i + 1]) != 0)
+                if (double.Parse(splittedText[i + 1], new CultureInfo("en-GB")) != 0)
                 {
-                    splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) / double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
+                    splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) / double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
                     splittedText[i] = ""; splittedText[i + 1] = "";
                     i = 0;
                 }
@@ -171,13 +171,13 @@ public partial class MainWindow : Window
         {
             if (splittedText[i] == "+" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) + double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
+                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) + double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
             else if (splittedText[i] == "-" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) - double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
+                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) - double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
@@ -191,5 +191,30 @@ public partial class MainWindow : Window
         lastOperation = "=";
     }
 
-    //TODO: Dorobić funkcjonalnosc dla nowych przyciskow
+    private void ExtraFunctionButton_Click(object sender, RoutedEventArgs e) => ExecuteExtraFunction((sender as Button).Name);
+    private void ExecuteExtraFunction(string name)
+    {
+        string[] splittedText = operationOutput.Text.Split(" ");
+
+        double number;
+
+        if (Double.TryParse(splittedText.Last(), NumberStyles.Float, new CultureInfo("en-GB"), out number))
+        {
+            switch (name)
+            {
+                case "oneSlashx":
+                    splittedText[splittedText.Length - 1] = (1 / number).ToString(new CultureInfo("en-GB"));
+                    break;
+                case "xToPowerOf2":
+                    splittedText[splittedText.Length - 1] = (Math.Pow(number, 2)).ToString(new CultureInfo("en-GB"));
+                    break;
+                case "squareRootOfx":
+                    splittedText[splittedText.Length - 1] = (Math.Sqrt(number)).ToString(new CultureInfo("en-GB"));
+                    break;
+            }
+
+            operationOutput.Text = String.Join(" ", splittedText);
+            lastOperation = "1";
+        }
+    }
 }
