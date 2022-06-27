@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,14 +13,9 @@ namespace ApplicationProj;
 public partial class MainWindow : Window
 {
     private string lastOperation = "0";
-    private bool isSpaceNeeded = true;
     private string[]? memory;
 
-    public MainWindow()
-    {
-        InitializeComponent();
-        BackspaceButton.Content = "<-";
-    }
+    public MainWindow() => InitializeComponent();
     private void MouseDown_Drag(object sender, MouseButtonEventArgs e)
     {
         if (e.LeftButton == MouseButtonState.Pressed)
@@ -31,10 +27,11 @@ public partial class MainWindow : Window
     private void AddOrChangeNumberButton_Click(object sender, RoutedEventArgs e) => AddToOutput((sender as Button).Content.ToString());
     private void AddToOutput(string operation)
     {
+        if (lastOperation == "=")
+            ExecuteMainFunction("CLEAR");
+
         if (operation == ".")
         {
-            isSpaceNeeded = false;
-
             if (lastOperation.All(Char.IsDigit))
             {
                 string[] splittedText = operationOutput.Text.Split(' ');
@@ -66,17 +63,17 @@ public partial class MainWindow : Window
         {
             if (operationOutput.Text == "0")
                 operationOutput.Text = "";
-
-            isSpaceNeeded = false;
-
             operationOutput.Text += operation;
+
             lastOperation = operation;
         }
         else
         {
-            isSpaceNeeded = true;
+            string[] splittedText = operationOutput.Text.Split(" ");
+            if(splittedText.Last().All(Char.IsDigit))
+                operationOutput.Text += operation;
+            else operationOutput.Text += $" {operation}";
 
-            operationOutput.Text += $" {operation}";
             lastOperation = operation;
         }
     }
@@ -84,30 +81,26 @@ public partial class MainWindow : Window
     private void AddOperationButton_Click(object sender, RoutedEventArgs e) => AddOperationToOutput((sender as Button).Content.ToString());
     private void AddOperationToOutput(string operation)
     {
-        if (lastOperation == "+" || lastOperation == "-" || lastOperation == "*" || lastOperation == "/")
+        string[] splittedText = operationOutput.Text.Split(" ");
+
+        if (lastOperation == "+" || lastOperation == "-" || lastOperation == "*" || lastOperation == "/" ||
+            splittedText.Last() == "+" || splittedText.Last() == "-" || splittedText.Last() == "*" || splittedText.Last() == "/")
         {
-            string[] splittedText = operationOutput.Text.Split(" ");
-
             splittedText[splittedText.Length - 1] = operation;
-
             operationOutput.Text = string.Join(" ", splittedText);
         }
-        else
-            operationOutput.Text += $" {operation}";
-
+        else operationOutput.Text += $" {operation}";
+            
         lastOperation = operation;
     }
 
-    private void MainFunctionsButton_Click(object sender, RoutedEventArgs e)
-    {
-        ExecuteMainFunction((sender as Button).Content.ToString());
-    }
+    private void MainFunctionsButton_Click(object sender, RoutedEventArgs e) => ExecuteMainFunction((sender as Button).Content.ToString());
     private void ExecuteMainFunction(string operation)
     {
         switch (operation)
         {
             case "MEMORY":
-                if (memory.Length >= 1)
+                if (memory is not null)
                 {
                     if (lastOperation.All(Char.IsDigit) || lastOperation == "+/-" || lastOperation == ".")
                         operationOutput.Text += string.Join(" ", memory);
@@ -130,12 +123,19 @@ public partial class MainWindow : Window
     private void BackspaceButton_Click(object sender, RoutedEventArgs e) => RemoveLastItem();
     private void RemoveLastItem()
     {
-        string[] splittedText = operationOutput.Text.Split(" ");
-        splittedText = splittedText.SkipLast(1).ToArray();
+        if (!String.IsNullOrEmpty(operationOutput.Text) && operationOutput.Text != "0")
+        {
+            string[] splittedText = operationOutput.Text.Split(" ");
+            
+            if(splittedText.Length > 1)
+            {
+                splittedText = splittedText.SkipLast(1).ToArray();
 
-        operationOutput.Text = string.Join(" ", splittedText);
+                operationOutput.Text = string.Join(" ", splittedText);
 
-        lastOperation = "-";
+                lastOperation = "<-";
+            }
+        }
     }
 
     private void EnterButton_Click(object sender, RoutedEventArgs e)
@@ -148,14 +148,14 @@ public partial class MainWindow : Window
         {
             if (splittedText[i] == "*" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) * double.Parse(splittedText[i + 1])}";
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) * double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
             else if (splittedText[i] == "/" && i > 0)
                 if (double.Parse(splittedText[i + 1]) != 0)
                 {
-                    splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) / double.Parse(splittedText[i + 1])}";
+                    splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) / double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
                     splittedText[i] = ""; splittedText[i + 1] = "";
                     i = 0;
                 }
@@ -171,13 +171,13 @@ public partial class MainWindow : Window
         {
             if (splittedText[i] == "+" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) + double.Parse(splittedText[i + 1])}";
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) + double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
             else if (splittedText[i] == "-" && i > 0)
             {
-                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1]) - double.Parse(splittedText[i + 1])}";
+                splittedText[i - 1] = $"{double.Parse(splittedText[i - 1], CultureInfo.InvariantCulture) - double.Parse(splittedText[i + 1], CultureInfo.InvariantCulture)}";
                 splittedText[i] = ""; splittedText[i + 1] = "";
                 i = 0;
             }
@@ -187,5 +187,9 @@ public partial class MainWindow : Window
         }
 
         operationOutput.Text = string.Concat(splittedText);
+
+        lastOperation = "=";
     }
+
+    //TODO: Dorobić funkcjonalnosc dla nowych przyciskow
 }

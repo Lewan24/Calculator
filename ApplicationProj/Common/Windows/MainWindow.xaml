@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApplicationProj"
         mc:Ignorable="d"
-        Title="Calculator" Height="500" Width="400"
+        Title="Calculator" Height="500" Width="279"
         ResizeMode="NoResize"
         WindowStyle="none" Icon="/Common/Windows/calculator.png">
-    <Grid Background="#FF00677D">
+    <Grid Background="#FF05033C">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -32,20 +32,20 @@
                        FontFamily="Ink Free"
                        FontSize="24"
                        Grid.Column="1"
-                       Grid.ColumnSpan="2"
+                       Grid.ColumnSpan="3"
                        ToolTip="Application made by Artur Lewandowski">
                 Calculator
             </TextBlock>
 
             <Button Grid.Column="7"
-                    Margin="10,2"
+                    Margin="4"
                     Click="CloseProgramButton_Click"
                     Cursor="Hand" ToolTip="Close Application">
                 <Image Source="/Common/Windows/close.png" Stretch="Uniform"/>
             </Button>
 
             <Button Grid.Column="6"
-                    Margin="10,2"
+                    Margin="4"
                     Click="MinimizeProgramButton_Click"
                     Cursor="Hand" ToolTip="Minimalize Application">
                 <Image Source="/Common/Windows/minus-symbol.png" Stretch="Uniform"/>
@@ -91,160 +91,259 @@
                 </Grid.RowDefinitions>
 
                 <!--Memory / Memory+ / Clear buttons-->
-                <Button Margin="6" 
+                <Button Margin="2,10" 
                         Grid.Column="0" 
-                        FontFamily="Lucida Calligraphy"
+                        FontFamily="Lucida Calligraphy" FontSize="10"
                         Cursor="Hand"
                         ToolTip="Get memory item"
-                        Click="MainFunctionsButton_Click">
+                        Click="MainFunctionsButton_Click" 
+                        Background="#FF5A5A5A"
+                        Foreground="White">
                     MEMORY
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="2,10" 
                         Grid.Column="1" 
-                        FontFamily="Lucida Calligraphy"
+                        FontFamily="Lucida Calligraphy" FontSize="10"
                         Cursor="Hand"
                         ToolTip="Add actual output to memory"
-                        Click="MainFunctionsButton_Click">
+                        Click="MainFunctionsButton_Click"
+                        Background="#FF5A5A5A"
+                        Foreground="White">
                     MEMORY+
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="2,10" 
                         Grid.Column="2" 
-                        FontFamily="Lucida Calligraphy"
+                        FontFamily="Lucida Calligraphy" FontSize="10"
                         Cursor="Hand"
                         ToolTip="Clear output"
-                        Click="MainFunctionsButton_Click">
+                        Click="MainFunctionsButton_Click"
+                        Background="#FF5A5A5A"
+                        Foreground="White">
                     CLEAR
                 </Button>
+                
                 <!--Numbers buttons-->
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="0" Grid.Row="1" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
-                        Click="AddOrChangeNumberButton_Click">
+                        Background="Black"
+                        Foreground="White"
+                        Click="AddOrChangeNumberButton_Click"
+                        BorderThickness="1">
                     1
                 </Button>
-                <Button Margin="6" 
+
+                <Button Margin="7,2"
                         Grid.Column="1" Grid.Row="1" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
-                        Click="AddOrChangeNumberButton_Click">
+                        Background="Black"
+                        Foreground="White"
+                        Click="AddOrChangeNumberButton_Click"
+                        BorderThickness="1">
                     2
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="2" Grid.Row="1" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     3
                 </Button>
 
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="0" Grid.Row="2" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     4
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="1" Grid.Row="2" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     5
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="2" Grid.Row="2" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     6
                 </Button>
 
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="0" Grid.Row="3" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     7
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="1" Grid.Row="3" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     8
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="2" Grid.Row="3" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     9
                 </Button>
-                
-                <Button Margin="6" 
+
+                <Button Margin="7,2"
                         Grid.Column="0" Grid.Row="4" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         ToolTip="Negate last added item"
                         Click="AddOrChangeNumberButton_Click">
                     +/-
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="1" Grid.Row="4" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="Black"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     0
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="2" Grid.Row="4" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOrChangeNumberButton_Click">
                     .
                 </Button>
 
+                <Button Margin="7,2"
+                        Grid.Column="0" Grid.Row="5" 
+                        FontFamily="MV Boli" FontSize="24"
+                        Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
+                        ToolTip="Negate last added item"
+                        Click="AddOrChangeNumberButton_Click">
+                    1/x
+                </Button>
 
-                <Button Margin="6" 
+                <Button Margin="7,2"
+                        Grid.Column="1" Grid.Row="5" 
+                        FontFamily="MV Boli" FontSize="24"
+                        Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
+                        ToolTip="Negate last added item"
+                        Click="AddOrChangeNumberButton_Click">
+                    x&#xb2;
+                </Button>
+
+                <Button Margin="7,2"
+                        Grid.Column="2" Grid.Row="5" 
+                        FontFamily="MV Boli" FontSize="24"
+                        Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
+                        ToolTip="Negate last added item"
+                        Click="AddOrChangeNumberButton_Click">
+                    &#x221A;x
+                </Button>
+
+
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="0" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         x:Name="BackspaceButton"
                         Click="BackspaceButton_Click">
+                    ←
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="1" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOperationButton_Click">
                     /
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="2" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOperationButton_Click">
                     *
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="3" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOperationButton_Click">
                     -
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="4" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="AddOperationButton_Click">
                     +
                 </Button>
-                <Button Margin="6" 
+                <Button Margin="7,2"
                         Grid.Column="4" Grid.Row="5" 
                         FontFamily="MV Boli" FontSize="24"
                         Cursor="Hand"
+                        Background="#FF450673"
+                        Foreground="White"
+                        BorderThickness="1"
                         Click="EnterButton_Click">
                     =
                 </Button>
