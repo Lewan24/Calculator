@@ -207,7 +207,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CalculatorApp"
         "ProductCode" = "8:{2AEDA1FB-34D3-4F76-92E4-922D5357C9A7}"
-        "PackageCode" = "8:{A15B9000-409E-4FA2-B68A-17B0E1F0FCE2}"
+        "PackageCode" = "8:{7C4BB599-4C6D-486A-A5B6-3288FCBD5A24}"
         "UpgradeCode" = "8:{50FBFEB9-15D8-46BD-ABA1-79BE0E87DF26}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
