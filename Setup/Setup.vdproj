@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_2B5F0C96555349668821ED55799757CB"
+        "MsmKey" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_545EF3C4D1B3467DB57285852AEC5872"
+        "MsmKey" = "8:_2B722C3D8C2A4115961BEA2918D9F540"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -77,6 +77,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_873421BF327E41429911E5D7D2C438AC"
+            {
+            "Name" = "8:windowsdesktop-runtime-6.0.6-win-x64.exe"
+            "Condition" = "8:"
+            "Object" = "8:_2B722C3D8C2A4115961BEA2918D9F540"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:/Commit"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_690F2531_F9F5_44AF_B24F_878988A23DA2"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -102,10 +116,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B5F0C96555349668821ED55799757CB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1AFF227A16994F7299CFD9A44DEBE7F7"
             {
-            "SourcePath" = "8:C:\\Users\\Lewan\\Downloads\\windowsdesktop-runtime-6.0.6-win-x64.exe"
-            "TargetName" = "8:windowsdesktop-runtime-6.0.6-win-x64.exe"
+            "SourcePath" = "8:..\\ApplicationProj\\Files\\Images\\calculator.ico"
+            "TargetName" = "8:calculator.ico"
             "Tag" = "8:"
             "Folder" = "8:_9C0AC9CF6D044783926BF24947586095"
             "Condition" = "8:"
@@ -122,7 +136,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_58122C997C3543F8838F15A1FCCCD498"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B722C3D8C2A4115961BEA2918D9F540"
             {
             "SourcePath" = "8:C:\\Users\\Lewan\\Downloads\\README.rtf"
             "TargetName" = "8:README.rtf"
