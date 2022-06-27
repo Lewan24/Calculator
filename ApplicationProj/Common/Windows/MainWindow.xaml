@@ -60,16 +60,28 @@
 
             <StackPanel Background="#1C293D" ToolTip="Output">
                 <TextBox HorizontalAlignment="Right"
+                         Foreground="#FFA9A5A5"
+                         Background="#1C293D"
+                         FontSize="24"
+                         FontFamily="Ink Free"
+                         TextWrapping="Wrap"
+                         Height="45"
+                         IsReadOnly="True"
+                         VerticalScrollBarVisibility="Auto"
+                         BorderThickness="0"
+                         x:Name="operationOutput">
+                    0
+                </TextBox>
+                <TextBox HorizontalAlignment="Right"
                          Foreground="White"
                          Background="#1C293D"
                          FontSize="40"
                          FontFamily="Ink Free"
                          TextWrapping="Wrap"
-                         Height="120"
+                         Height="75"
                          IsReadOnly="True"
-                         VerticalScrollBarVisibility="Auto"
                          BorderThickness="0"
-                         x:Name="operationOutput">
+                         x:Name="result">
                     0
                 </TextBox>
             </StackPanel>

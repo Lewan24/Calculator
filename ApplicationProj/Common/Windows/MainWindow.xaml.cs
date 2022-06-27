@@ -13,7 +13,7 @@ namespace ApplicationProj;
 public partial class MainWindow : Window
 {
     private string lastOperation = "0";
-    private string[]? memory;
+    private string? memory;
 
     public MainWindow() => InitializeComponent();
     private void MouseDown_Drag(object sender, MouseButtonEventArgs e)
@@ -27,8 +27,8 @@ public partial class MainWindow : Window
     private void AddOrChangeNumberButton_Click(object sender, RoutedEventArgs e) => AddToOutput((sender as Button).Content.ToString());
     private void AddToOutput(string operation)
     {
-        if (lastOperation == "=")
-            ExecuteMainFunction("CLEAR");
+        //if (lastOperation == "=")
+           // ExecuteMainFunction("CLEAR");
 
         if (operation == ".")
         {
@@ -76,6 +76,8 @@ public partial class MainWindow : Window
 
             lastOperation = operation;
         }
+
+        ExecuteResult();
     }
 
     private void AddOperationButton_Click(object sender, RoutedEventArgs e) => AddOperationToOutput((sender as Button).Content.ToString());
@@ -100,21 +102,24 @@ public partial class MainWindow : Window
         switch (operation)
         {
             case "MEMORY":
-                if (memory is not null)
+                if (memory is not null && memory != "0")
                 {
                     if (lastOperation.All(Char.IsDigit) || lastOperation == "+/-" || lastOperation == ".")
-                        operationOutput.Text += string.Join(" ", memory);
+                        operationOutput.Text += memory;
                     else
-                        operationOutput.Text += $" {string.Join(" ", memory)}";
+                        operationOutput.Text += $" {memory}";
 
-                    lastOperation = memory.Last();
+                    lastOperation = memory;
+
+                    ExecuteResult();
                 }
                 break;
             case "MEMORY+":
-                memory = operationOutput.Text.Split(" ");
+                memory = result.Text;
                 break;
             case "CLEAR":
                 operationOutput.Text = "0";
+                result.Text = "0";
                 lastOperation = "0";
                 break;
         }
@@ -136,6 +141,8 @@ public partial class MainWindow : Window
                 lastOperation = "<-";
             }
         }
+
+        ExecuteResult();
     }
 
     private void EnterButton_Click(object sender, RoutedEventArgs e) => ExecuteResult();
@@ -143,53 +150,63 @@ public partial class MainWindow : Window
     {
         string[] splittedText = operationOutput.Text.Split(" ");
 
-        int i = 0;
-
-        while (splittedText.Contains("*") || splittedText.Contains("/"))
+        if (splittedText.Last() == "+" || splittedText.Last() == "-" ||
+                splittedText.Last() == "*" || splittedText.Last() == "/")
         {
-            if (splittedText[i] == "*" && i > 0)
+            splittedText[splittedText.Length - 1] = "";
+            splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+
+        if (splittedText.Length >= 3)
+        {
+            int i = 0;
+
+            while (splittedText.Contains("*") || splittedText.Contains("/"))
             {
-                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) * double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
-                splittedText[i] = ""; splittedText[i + 1] = "";
-                i = 0;
-            }
-            else if (splittedText[i] == "/" && i > 0)
-                if (double.Parse(splittedText[i + 1], new CultureInfo("en-GB")) != 0)
+                if (splittedText[i] == "*" && i > 0)
                 {
-                    splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) / double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
+                    splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) * double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
                     splittedText[i] = ""; splittedText[i + 1] = "";
                     i = 0;
                 }
-                else { splittedText[i - 1] = "0"; splittedText[i] = ""; splittedText[i + 1] = ""; }
-            else i++;
+                else if (splittedText[i] == "/" && i > 0)
+                    if (double.Parse(splittedText[i + 1], new CultureInfo("en-GB")) != 0)
+                    {
+                        splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) / double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
+                        splittedText[i] = ""; splittedText[i + 1] = "";
+                        i = 0;
+                    }
+                    else { splittedText[i - 1] = "0"; splittedText[i] = ""; splittedText[i + 1] = ""; }
+                else i++;
 
-            splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-        }
-
-        i = 0;
-
-        while (splittedText.Contains("+") || splittedText.Contains("-"))
-        {
-            if (splittedText[i] == "+" && i > 0)
-            {
-                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) + double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
-                splittedText[i] = ""; splittedText[i + 1] = "";
-                i = 0;
+                splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
-            else if (splittedText[i] == "-" && i > 0)
+
+            i = 0;
+
+            while (splittedText.Contains("+") || splittedText.Contains("-"))
             {
-                splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) - double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
-                splittedText[i] = ""; splittedText[i + 1] = "";
-                i = 0;
+                if (splittedText[i] == "+" && i > 0)
+                {
+                    splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) + double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
+                    splittedText[i] = ""; splittedText[i + 1] = "";
+                    i = 0;
+                }
+                else if (splittedText[i] == "-" && i > 0)
+                {
+                    splittedText[i - 1] = (double.Parse(splittedText[i - 1], new CultureInfo("en-GB")) - double.Parse(splittedText[i + 1], new CultureInfo("en-GB"))).ToString(new CultureInfo("en-GB"));
+                    splittedText[i] = ""; splittedText[i + 1] = "";
+                    i = 0;
+                }
+                else i++;
+
+                splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
             }
-            else i++;
 
-            splittedText = splittedText.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+            result.Text = string.Concat(splittedText);
+
+            //lastOperation = "=";
         }
-
-        operationOutput.Text = string.Concat(splittedText);
-
-        lastOperation = "=";
     }
 
     private void ExtraFunctionButton_Click(object sender, RoutedEventArgs e) => ExecuteExtraFunction((sender as Button).Name);
@@ -215,6 +232,7 @@ public partial class MainWindow : Window
             }
 
             operationOutput.Text = String.Join(" ", splittedText);
+            ExecuteResult();
             lastOperation = "1";
         }
     }
@@ -254,23 +272,23 @@ public partial class MainWindow : Window
             case Key.D7: case Key.NumPad7:
                 AddToOutput("7");
                 break;
-            case Key.D8: case Key.NumPad8:
-                AddToOutput("8");
+            case Key.D8: case Key.NumPad8: 
+            AddToOutput("8");
                 break;
             case Key.D9: case Key.NumPad9:
                 AddToOutput("9");
                 break;
 
             case Key.Multiply:
-                AddOperationToOutput("*");
+            AddOperationToOutput("*");
                 break;
-            case Key.Add:
+            case Key.Add: case Key.OemPlus:
                 AddOperationToOutput("+");
                 break;
-            case Key.Subtract:
+            case Key.Subtract: case Key.OemMinus:
                 AddOperationToOutput("-");
                 break;
-            case Key.Divide:
+            case Key.Divide: case Key.OemQuestion:
                 AddOperationToOutput("/");
                 break;
         }
