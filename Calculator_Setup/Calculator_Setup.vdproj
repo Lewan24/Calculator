@@ -15,7 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_722A89663A894F4798FC88397A7699AF"
+        "MsmKey" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1D1B219A59364668A0278E0FFD36C747"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E860C411A47840C7A3A3CE7ABC6E312F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -59,6 +71,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_68EC36D4941B413FA1AFCDC0943D72C4"
+            {
+            "Name" = "8:dotnet-runtime-6.0.6-win-x64.exe"
+            "Condition" = "8:"
+            "Object" = "8:_1D1B219A59364668A0278E0FFD36C747"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:/Install"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_2AEDF7D2_B97F_4E6E_B617_4621CE44AEBA"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -84,6 +110,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1AFF227A16994F7299CFD9A44DEBE7F7"
+            {
+            "SourcePath" = "8:..\\ApplicationProj\\Files\\Images\\calculator.ico"
+            "TargetName" = "8:calculator.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_9A6E8D7C54134B65A9062D452BD464C9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1D1B219A59364668A0278E0FFD36C747"
+            {
+            "SourcePath" = "8:C:\\Users\\Lewan\\Downloads\\dotnet-runtime-6.0.6-win-x64.exe"
+            "TargetName" = "8:dotnet-runtime-6.0.6-win-x64.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_9A6E8D7C54134B65A9062D452BD464C9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -114,7 +180,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_9A6E8D7C54134B65A9062D452BD464C9"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -139,9 +205,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Calculator_Setup"
+        "ProductName" = "8:CalculatorApp"
         "ProductCode" = "8:{2AEDA1FB-34D3-4F76-92E4-922D5357C9A7}"
-        "PackageCode" = "8:{13AE70BB-3635-4897-AC5C-0B275120F012}"
+        "PackageCode" = "8:{A15B9000-409E-4FA2-B68A-17B0E1F0FCE2}"
         "UpgradeCode" = "8:{50FBFEB9-15D8-46BD-ABA1-79BE0E87DF26}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -152,19 +218,19 @@
         "Manufacturer" = "8:LewanMordor@protonmail.com"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Calculator_Setup"
+        "Title" = "8:CalculatorApp"
         "Subject" = "8:"
         "ARPCONTACT" = "8:LewanMordor@protonmail.com"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPCOMMENTS" = "8:Simple Calc"
+        "ARPURLINFOABOUT" = "8:UncleBob_Games"
+        "ARPPRODUCTICON" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:www.Lewan24.github.io"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
@@ -261,6 +327,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_56D0B252EFE44FA19FDE2F5B9AF8AF45"
+            {
+            "Name" = "8:Calculator"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_E860C411A47840C7A3A3CE7ABC6E312F"
+            "Folder" = "8:_6333AF806A7B48768C267CA2FB1CAE97"
+            "WorkingFolder" = "8:_6333AF806A7B48768C267CA2FB1CAE97"
+            "Icon" = "8:_1AFF227A16994F7299CFD9A44DEBE7F7"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -660,7 +740,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_722A89663A894F4798FC88397A7699AF"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E860C411A47840C7A3A3CE7ABC6E312F"
             {
             "SourcePath" = "8:..\\ApplicationProj\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
